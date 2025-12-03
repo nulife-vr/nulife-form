@@ -1,37 +1,11 @@
-app.get('/api', (req, res) => {
-    res.send('Server is running');
-});
-
-// Database Connection Pool
-const pool = mysql.createPool({
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
-    port: process.env.MYSQL_PORT,
-    ssl: {
-        rejectUnauthorized: false
-    }
-});
-
-// LOGIN
-app.post('/api/login', async (req, res) => {
-    try {
-        const { phone, password } = req.body;
-        const [rows] = await pool.execute(
-            'SELECT * FROM users WHERE phone = ? AND password = ?',
-            [phone, password]
-        );
-
-        if (rows.length > 0) {
-            res.json(rows[0]);
+res.json(rows[0]);
         } else {
-            res.status(401).json({ error: 'Invalid credentials' });
-        }
+    res.status(401).json({ error: 'Invalid credentials' });
+}
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Database error' });
-    }
+    console.error(err);
+    res.status(500).json({ error: 'Database error' });
+}
 });
 
 // REGISTER (User + First Assessment)
