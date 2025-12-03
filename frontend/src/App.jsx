@@ -49,6 +49,7 @@ import { Heart, Activity, User, LogOut, FileText, ChevronRight, ChevronLeft, Che
 
 // API BASE URL (From Environment Variable)
 const API_URL = import.meta.env.VITE_API_URL || '/api';
+console.log('Current API_URL:', API_URL);
 
 // --- ERROR BOUNDARY ---
 class ErrorBoundary extends React.Component {
