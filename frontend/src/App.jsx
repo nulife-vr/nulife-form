@@ -48,7 +48,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Activity, User, LogOut, FileText, ChevronRight, ChevronLeft, Check, Globe, Plus, ShoppingBag, Edit2, Save, X } from 'lucide-react';
 
 // API BASE URL (From Environment Variable)
-const API_URL = import.meta.env.VITE_API_URL || '/api';
+// API BASE URL
+const API_URL = import.meta.env.DEV ? 'http://localhost:3001/api' : '/api';
 console.log('Current API_URL:', API_URL);
 
 // --- ERROR BOUNDARY ---
