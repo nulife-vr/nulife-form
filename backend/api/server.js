@@ -15,7 +15,7 @@ app.get('/api', (req, res) => {
     res.send('Server is running');
 });
 
-// Database Connection Pool
+// Database onnection Pool
 let pool;
 try {
     if (process.env.MYSQL_HOST) {
