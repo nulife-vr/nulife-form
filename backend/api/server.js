@@ -1,19 +1,3 @@
-const express = require('express');
-const mysql = require('mysql2/promise');
-const cors = require('cors');
-require('dotenv').config();
-
-const app = express();
-app.use(cors({
-    origin: ['https://nulife-form.vercel.app', 'http://localhost:5173', 'http://localhost:5174'],
-    credentials: true
-}));
-app.use(express.json());
-
-// Health Check Route
-app.get('/', (req, res) => {
-    res.send('Server is running');
-});
 app.get('/api', (req, res) => {
     res.send('Server is running');
 });
